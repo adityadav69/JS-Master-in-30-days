@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: black;
+        }
+        .parent{
+            width: 80vw;
+            height: 75vh;
+            margin: auto auto;
+            background-color: rgb(88, 88, 6);
+            border: 5px solid green;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        .child{
+            width: 200px;
+            background-color: pink;
+            height: 200px;
+            border: 3px solid blueviolet;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="child" id="1">box1</div>
+        <div class="child" id="2">box2</div>
+        <div class="child" id="3">box3</div>
+        <div class="child" id="4">box4</div>
+        <div class="child" id="5">box5</div>
+    </div>
+
+    <script>
+        let parent=document.querySelector('.parent');
+        let child=document.querySelectorAll('.child');
+        // console.log(child);
+        parent.addEventListener('click',(e)=>{
+            console.log(`clicked in parent`);
+            
+        })
+        child.forEach((ad)=>{
+            ad.addEventListener('click',(e)=>{
+                e.stopPropagation()
+              let del=e.target.id;
+                
+            },false)
+        })
+
+    </script>
+</body>
+</html>
